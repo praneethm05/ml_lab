@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>lab1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>updates</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7517,10 +7517,6 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Lab-1-%E2%80%94-India-Air-Quality-&amp;-Crop-Yield:-Exploratory-Data-Analysis">Lab 1 — India Air Quality &amp; Crop Yield: Exploratory Data Analysis<a class="anchor-link" href="#Lab-1-%E2%80%94-India-Air-Quality-&amp;-Crop-Yield:-Exploratory-Data-Analysis">¶</a></h1><ul>
-<li><code>city_day.csv</code> — Daily AQI measurements for 26 Indian cities (2015–2020)</li>
-<li><code>crop_production.csv</code> — District-level crop production across India (1997–2015)</li>
-</ul>
 </div>
 </div>
 </div>
@@ -7529,7 +7525,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -7572,7 +7568,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
-<h2 id="Task-1-%E2%80%94-Data-Profiling">Task 1 — Data Profiling<a class="anchor-link" href="#Task-1-%E2%80%94-Data-Profiling">¶</a></h2><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p>Before any transformation we need to understand the raw shape and health of each dataset.<br/>
+<h2 id="Task-1-:-Data-Profiling">Task 1 : Data Profiling<a class="anchor-link" href="#Task-1-:-Data-Profiling">¶</a></h2><p>Approach
 For every file we report:</p>
 <ol>
 <li><strong>Shape</strong> — row × column count</li>
@@ -7590,7 +7586,7 @@ For every file we report:</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">air_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'city_day.csv'</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">])</span>
@@ -7622,7 +7618,7 @@ crop_production loaded: 246,091 rows × 7 columns
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'CITY_DAY — DATA PROFILE'</span><span class="p">)</span>
@@ -8015,7 +8011,7 @@ AQI_Bucket        6
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'CROP_PRODUCTION — DATA PROFILE'</span><span class="p">)</span>
@@ -8244,17 +8240,17 @@ Production       51627
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Task-1-%E2%80%94-Observations-&amp;-Concerns">Task 1 — Observations &amp; Concerns<a class="anchor-link" href="#Task-1-%E2%80%94-Observations-&amp;-Concerns">¶</a></h3><p><strong>city_day.csv</strong></p>
+<h3 id="Task-1-:-Concerns">Task 1 : Concerns<a class="anchor-link" href="#Task-1-:-Concerns">¶</a></h3><p><strong>city_day.csv</strong></p>
 <ul>
-<li><strong>Heavy missingness in several pollutant columns:</strong> Xylene (~61 %), PM10 (~38 %), NH3 (~35 %), Toluene (~27 %). Imputing more than ~30 % of a column introduces substantial artificial signal; these should be dropped.</li>
-<li><strong>AQI maximum of 2,049</strong> is a clear outlier given the standard India AQI scale tops at 500. This will need outlier treatment before modelling.</li>
+<li><strong>missingness in several pollutant columns:</strong> Xylene (61 %), PM10 (38 %), NH3 (35 %), Toluene (27 %). Imputing more than 30 % of a column introduces substantial artificial signal; these should be dropped.</li>
+<li><strong>AQI maximum of 2,049</strong> is a clear outlier given the standard India AQI scale tops at 500.</li>
 <li><strong>No State column is present</strong> — city-to-state mapping must be added manually to enable any geographic analysis alongside the crop dataset.</li>
 </ul>
 <p><strong>crop_production.csv</strong></p>
 <ul>
-<li><strong>Only Production has missing values</strong> (~1.5 %, 3,730 rows). Because Production is the target/label column and the missing fraction is small, row-wise deletion is the safest strategy — imputation would fabricate yield figures.</li>
-<li><strong>State_Name contains leading/trailing whitespace and inconsistent capitalisation</strong> (e.g. <code>'Jammu And Kashmir'</code> vs expected title case). Season also has trailing spaces (e.g. <code>'Kharif     '</code>) that will cause spurious grouping.</li>
-<li><strong>Area and Production span several orders of magnitude</strong> (min→max ranges are extreme), suggesting log-transformation may be needed for modelling tasks — flagged here for awareness.</li>
+<li><strong>Only Production has missing values</strong> (1.5 %, 3,730 rows). Because Production is the target/label column and the missing fraction is small, row-wise deletion is the safest strategy — imputation would fabricate yield figures.</li>
+<li><strong>State_Name contains leading/trailing whitespace and inconsistent capitalisation</strong> (e.g. 'Jammu And Kashmir' vs expected title case). Season also has trailing spaces (e.g. 'Kharif     ').</li>
+<li><strong>Area and Production span several orders of magnitude</strong> (min max ranges are extreme), suggesting log-transformation may be needed for modelling tasks — flagged here for awareness.</li>
 </ul>
 </div>
 </div>
@@ -8266,82 +8262,10 @@ Production       51627
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="Task-2-%E2%80%94-Missing-Value-Treatment">Task 2 — Missing Value Treatment<a class="anchor-link" href="#Task-2-%E2%80%94-Missing-Value-Treatment">¶</a></h2><h3 id="Approach-&amp;-Justification">Approach &amp; Justification<a class="anchor-link" href="#Approach-&amp;-Justification">¶</a></h3><p><strong>city_day.csv</strong></p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Missing %</th>
-<th>Decision</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Xylene</td>
-<td>~61 %</td>
-<td><strong>Drop</strong></td>
-<td>Majority missing; imputation unreliable</td>
-</tr>
-<tr>
-<td>NH3</td>
-<td>~35 %</td>
-<td><strong>Drop</strong></td>
-<td>&gt; 30 % threshold; correlated with NOx anyway</td>
-</tr>
-<tr>
-<td>PM10</td>
-<td>~38 %</td>
-<td><strong>Drop</strong></td>
-<td>&gt; 30 % threshold</td>
-</tr>
-<tr>
-<td>Toluene</td>
-<td>~27 %</td>
-<td><strong>Drop</strong></td>
-<td>&gt; 25 % threshold; benzene already covers aromatic hydrocarbons</td>
-</tr>
-<tr>
-<td>Remaining numerics</td>
-<td>varies</td>
-<td><strong>Median imputation by City</strong></td>
-<td>Median is robust to skew; city-grouped imputation preserves local pollution patterns better than a global median</td>
-</tr>
-<tr>
-<td>AQI</td>
-<td>varies</td>
-<td><strong>Median by City</strong></td>
-<td>Same rationale</td>
-</tr>
-<tr>
-<td>AQI_Bucket</td>
-<td>derived</td>
-<td><strong>Derive from imputed AQI</strong></td>
-<td>Keeps label consistent with value; avoids conflicting category/value pairs</td>
-</tr>
-</tbody>
-</table>
-<p><strong>crop_production.csv</strong></p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Missing %</th>
-<th>Decision</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Production</td>
-<td>~1.5 %</td>
-<td><strong>Drop rows</strong></td>
-<td>Target variable — fabricating values would bias any model trained on this data; loss is &lt; 2 %</td>
-</tr>
-</tbody>
-</table>
-<p>All other columns in crop_production have zero missing values and need no treatment.</p>
+<h2 id="Task-2:-Missing-Value-Treatment">Task 2: Missing Value Treatment<a class="anchor-link" href="#Task-2:-Missing-Value-Treatment">¶</a></h2><h3 id="city_day.csv">city_day.csv<a class="anchor-link" href="#city_day.csv">¶</a></h3><p>Several columns had missing value percentages too high to justify imputation. Xylene was dropped due to 61% missing values. NH3 (35% missing) and PM10 (38% missing) were both above the 30% cutoff and were dropped as well; NH3 also correlates with NOx, so its removal has minimal impact. Toluene (27% missing) exceeded the 25% threshold and was dropped, since benzene already represents the aromatic hydrocarbon group.
+For the remaining numeric pollutant columns and AQI, median imputation grouped by city was used. The median is more robust to skewed distributions than the mean, and city-level grouping ensures imputed values reflect local pollution patterns rather than a national average.
+AQI_Bucket is a derived field, so it was recomputed from the imputed AQI values to maintain consistency between the category label and the underlying value.</p>
+<h3 id="crop_production.csv">crop_production.csv<a class="anchor-link" href="#crop_production.csv">¶</a></h3><p>Production had approximately 1.5% missing values. Since it is the target variable, the corresponding rows were dropped rather than imputed, as fabricated values could introduce bias into any model trained on this data. The loss of under 2% of rows was considered acceptable. All other columns in this dataset had no missing values and required no treatment.</p>
 </div>
 </div>
 </div>
@@ -8350,7 +8274,7 @@ Production       51627
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">air</span> <span class="o">=</span> <span class="n">air_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -8458,7 +8382,7 @@ city_day shape after treatment: (29531, 12)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">crop</span> <span class="o">=</span> <span class="n">crop_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -8513,10 +8437,13 @@ crop_production shape after treatment: (242361, 7)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Task-2-%E2%80%94-Observations">Task 2 — Observations<a class="anchor-link" href="#Task-2-%E2%80%94-Observations">¶</a></h3><ul>
-<li><strong>city_day.csv:</strong> Four high-missingness columns (Xylene, NH3, PM10, Toluene) were removed, reducing the feature set from 16 to 12 columns. All remaining numeric pollutant columns now have zero missing values after city-grouped median imputation. AQI_Bucket is now fully consistent with the imputed AQI values.</li>
-<li><strong>crop_production.csv:</strong> Removing 3,730 rows (1.5 %) where Production was null is a negligible data loss. The dataset retains &gt;242,000 records, which is more than sufficient for analysis. Zero missing values remain.</li>
-<li><strong>Key insight:</strong> City-grouped median imputation is superior to a global fill because air quality varies dramatically between, say, Delhi (high pollution) and Aizawl (low pollution) — a global median would systematically under- or over-impute for extreme cities.</li>
+<h3 id="Task-2-:-Observations">Task 2 : Observations<a class="anchor-link" href="#Task-2-:-Observations">¶</a></h3><ul>
+<li><p><strong>city_day.csv:</strong> Four high missing columns (Xylene, NH3, PM10, Toluene) were removed, reducing the feature set from 16 to 12 columns. All remaining numeric pollutant columns now have zero missing values after city-grouped median imputation. AQI_Bucket is now fully consistent with the imputed AQI values.</p>
+</li>
+<li><p><strong>crop_production.csv:</strong> Removing 3,730 rows (1.5 %) where Production was null is a negligible data loss. The dataset retains &gt;242,000 records, which is more than sufficient for analysis. Zero missing values remain.</p>
+</li>
+<li><p><strong>Key insight:</strong> City-grouped median imputation is superior to a global fill because air quality varies dramatically between, Delhi (high pollution) and Aizawl (low pollution) — a global median would systematically under- or over-impute for extreme cities.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -8528,8 +8455,7 @@ crop_production shape after treatment: (242361, 7)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="Task-3-%E2%80%94-State-Name-Standardisation-&amp;-Deduplication">Task 3 — State Name Standardisation &amp; Deduplication<a class="anchor-link" href="#Task-3-%E2%80%94-State-Name-Standardisation-&amp;-Deduplication">¶</a></h2><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p><strong>city_day.csv</strong> has no State column. A manually curated city→state mapping (based on official Indian administrative boundaries) is applied.</p>
+<h3 id="Task-3-:-State-Name-Standardisation-&amp;-Deduplication">Task 3 : State Name Standardisation &amp; Deduplication<a class="anchor-link" href="#Task-3-:-State-Name-Standardisation-&amp;-Deduplication">¶</a></h3><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p><strong>city_day.csv</strong> has no State column. A manually curated city-state mapping (based on official Indian administrative boundaries) is applied.</p>
 <p><strong>crop_production.csv</strong> has several known inconsistencies in State_Name:</p>
 <ul>
 <li>Trailing/leading whitespace (visible from the raw CSV)</li>
@@ -8545,7 +8471,7 @@ crop_production shape after treatment: (242361, 7)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">CITY_TO_STATE</span> <span class="o">=</span> <span class="p">{</span>
@@ -8586,7 +8512,7 @@ crop_production shape after treatment: (242361, 7)
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'WARNING — unmapped cities: </span><span class="si">{</span><span class="n">unmapped</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">City → State mapping summary:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">City - State mapping summary:'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">air</span><span class="p">[[</span><span class="s1">'City'</span><span class="p">,</span> <span class="s1">'State'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'State'</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -8602,7 +8528,7 @@ crop_production shape after treatment: (242361, 7)
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>All 26 cities successfully mapped to a State.
 
-City → State mapping summary:
+City - State mapping summary:
               City          State
      Visakhapatnam Andhra Pradesh
          Amaravati Andhra Pradesh
@@ -8640,13 +8566,13 @@ Thiruvananthapuram         Kerala
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rows_before_air</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">air</span><span class="p">)</span>
 <span class="n">air</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">rows_after_air</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">air</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'city_day: </span><span class="si">{</span><span class="n">rows_before_air</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> → </span><span class="si">{</span><span class="n">rows_after_air</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> rows '</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'city_day: </span><span class="si">{</span><span class="n">rows_before_air</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">rows_after_air</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> rows '</span>
       <span class="sa">f</span><span class="s1">'(removed </span><span class="si">{</span><span class="n">rows_before_air</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rows_after_air</span><span class="si">}</span><span class="s1"> duplicates)'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8660,7 +8586,7 @@ Thiruvananthapuram         Kerala
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>city_day: 29,531 → 29,531 rows (removed 0 duplicates)
+<pre>city_day: 29,531 - 29,531 rows (removed 0 duplicates)
 </pre>
 </div>
 </div>
@@ -8671,7 +8597,7 @@ Thiruvananthapuram         Kerala
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">crop</span><span class="p">[</span><span class="s1">'State_Name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">crop</span><span class="p">[</span><span class="s1">'State_Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
@@ -8714,7 +8640,7 @@ Total unique states after standardisation: 33
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rows_before_crop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">crop</span><span class="p">)</span>
@@ -8753,14 +8679,14 @@ Season values after stripping:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Task-3-%E2%80%94-Observations-&amp;-Inconsistencies-Found">Task 3 — Observations &amp; Inconsistencies Found<a class="anchor-link" href="#Task-3-%E2%80%94-Observations-&amp;-Inconsistencies-Found">¶</a></h3><p><strong>city_day.csv</strong></p>
+<h3 id="Task-3:-Observations-&amp;-Inconsistencies-Found">Task 3: Observations &amp; Inconsistencies Found<a class="anchor-link" href="#Task-3:-Observations-&amp;-Inconsistencies-Found">¶</a></h3><p><strong>city_day.csv</strong></p>
 <ul>
 <li><strong>Inconsistency:</strong> No State column existed. Resolved by a hand-curated 26-city → state lookup. Two cities share state Tamil Nadu (Chennai, Coimbatore), three cities share Kerala (Ernakulam, Kochi, Thiruvananthapuram), and two cities share Odisha (Brajrajnagar, Talcher) and Andhra Pradesh (Amaravati, Visakhapatnam).</li>
 <li><strong>Duplicates:</strong> Zero exact duplicate rows found (City + Date combination is effectively a natural key).</li>
 </ul>
 <p><strong>crop_production.csv</strong></p>
 <ul>
-<li><strong>Inconsistency 1 — Historical state names:</strong> <code>Uttaranchal</code> renamed to <code>Uttarakhand</code>, <code>Orissa</code> renamed to <code>Odisha</code> (both renamed by acts of Parliament). Using the current names ensures alignment with the city_day State column.</li>
+<li><strong>Inconsistency 1 — Historical state names:</strong> <code>Uttaranchal</code> renamed to <code>Uttarakhand</code>, <code>Orissa</code> renamed to <code>Odisha</code> . Using the current names ensures alignment with the city_day State column.</li>
 <li><strong>Inconsistency 2 — Casing/separator in <code>Jammu And Kashmir</code>:</strong> Standardised to <code>Jammu &amp; Kashmir</code> to match common administrative usage.</li>
 <li><strong>Inconsistency 3 — Season column whitespace:</strong> Values like <code>'Kharif     '</code> stripped to <code>'Kharif'</code> — this affects groupby correctness.</li>
 <li><strong>Row count impact:</strong> Any duplicates removed were likely exact data-entry repetitions; the core analytical population is unchanged.</li>
@@ -8775,8 +8701,7 @@ Season values after stripping:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="Task-4-%E2%80%94-AQI-Distribution-Visualisation">Task 4 — AQI Distribution Visualisation<a class="anchor-link" href="#Task-4-%E2%80%94-AQI-Distribution-Visualisation">¶</a></h2><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p>A <strong>histogram with KDE overlay</strong> and a <strong>boxplot</strong> are presented side-by-side.</p>
+<h3 id="Task-4:-AQI-Distribution-Visualisation">Task 4: AQI Distribution Visualisation<a class="anchor-link" href="#Task-4:-AQI-Distribution-Visualisation">¶</a></h3><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p>A <strong>histogram with KDE overlay</strong> and a <strong>boxplot</strong> are presented side-by-side.</p>
 <ul>
 <li>The <strong>histogram + KDE</strong> reveals the <em>shape</em> of the distribution: modality, skew, and the location of the central mass.</li>
 <li>The <strong>boxplot</strong> compactly summarises the five-number summary (min, Q1, median, Q3, max) and makes individual outliers directly visible as scattered points beyond the whiskers.</li>
@@ -8790,7 +8715,7 @@ Season values after stripping:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -8874,12 +8799,12 @@ Season values after stripping:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Task-4-%E2%80%94-Observations">Task 4 — Observations<a class="anchor-link" href="#Task-4-%E2%80%94-Observations">¶</a></h3><p><strong>Why histogram + boxplot together?</strong><br/>
+<h3 id="Task-4:-Observations">Task 4: Observations<a class="anchor-link" href="#Task-4:-Observations">¶</a></h3><p><strong>Why histogram + boxplot together?</strong><br/>
 The histogram (with KDE) shows the full distributional shape and density peaks, while the boxplot concisely marks the quartiles and flags individual extreme values. Neither alone is sufficient: a histogram with many bins can obscure outliers in the tails, while a boxplot alone cannot reveal bimodality or the detailed shape of the central mass.</p>
 <p><strong>Observation 1 — Strong right skew:</strong><br/>
 The histogram shows a right-skewed (positively skewed) distribution with the bulk of AQI values concentrated below 200 ("Moderate" band). The mean exceeds the median (visible from the dashed lines), which is a classic skew signature. This indicates that most days across the 26 cities have moderate air quality, but a small fraction of days recorded extremely high pollution.</p>
 <p><strong>Observation 2 — Substantial outlier mass:</strong><br/>
-The boxplot reveals a long upper whisker and numerous individual outlier points extending well above Q3 + 1.5×IQR, including the extreme value of ~2,049 AQI. These extreme readings likely correspond to specific seasonal pollution events (e.g. post-Diwali smog in Delhi, crop-burning in Punjab) or possible sensor malfunctions. These outliers will be addressed in Task 5.</p>
+The boxplot reveals a long upper whisker and numerous individual outlier points extending well above Q3 + 1.5×IQR, including the extreme value of 2,049 AQI. These extreme readings likely correspond to specific seasonal pollution events (e.g. post-Diwali smog in Delhi, crop-burning in Punjab) or possible sensor malfunctions. These outliers will be addressed in Task 5.</p>
 </div>
 </div>
 </div>
@@ -8890,15 +8815,14 @@ The boxplot reveals a long upper whisker and numerous individual outlier points 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="Task-5-%E2%80%94-Outlier-Detection-&amp;-Treatment">Task 5 — Outlier Detection &amp; Treatment<a class="anchor-link" href="#Task-5-%E2%80%94-Outlier-Detection-&amp;-Treatment">¶</a></h2><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p><strong>Detection — IQR method:</strong><br/>
+<h3 id="Task-5:-Outlier-Detection-&amp;-Treatment">Task 5: Outlier Detection &amp; Treatment<a class="anchor-link" href="#Task-5:-Outlier-Detection-&amp;-Treatment">¶</a></h3><h3 id="Approach">Approach<a class="anchor-link" href="#Approach">¶</a></h3><p><strong>Detection — IQR method:</strong><br/>
 The interquartile range (IQR = Q3 − Q1) is a robust, distribution-free measure of spread. Values above Q3 + 1.5 × IQR are classified as outliers by Tukey's fence rule. The IQR method is preferred over z-score here because the AQI distribution is heavily right-skewed (z-score assumes approximate normality).</p>
-<p><strong>Treatment — Winsorisation at the 99th percentile:</strong><br/>
+<p><strong>Treatment: Winsorisation at the 99th percentile:</strong><br/>
 Outlying values are <em>capped</em> at the 99th percentile rather than deleted because:</p>
 <ol>
 <li><strong>Deletion loses real observations</strong> — extremely polluted days (e.g. post-Diwali Delhi) are genuinely important events, not measurement errors.</li>
 <li><strong>Winsorisation preserves row count</strong> — time-series continuity is maintained.</li>
-<li><strong>99th percentile cap</strong> is a less aggressive threshold than the IQR fence; it retains genuine extreme values while limiting the influence of the single extreme outlier (~2,049) that is most likely a sensor anomaly.</li>
+<li><strong>99th percentile cap</strong> is a less aggressive threshold than the IQR fence; it retains genuine extreme values while limiting the influence of the single extreme outlier (2,049) that is most likely a sensor anomaly.</li>
 </ol>
 </div>
 </div>
@@ -8908,7 +8832,7 @@ Outlying values are <em>capped</em> at the 99th percentile rather than deleted b
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q1</span> <span class="o">=</span> <span class="n">air</span><span class="p">[</span><span class="s1">'AQI'</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
@@ -8975,7 +8899,7 @@ Outlying values are <em>capped</em> at the 99th percentile rather than deleted b
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">cap_99</span> <span class="o">=</span> <span class="n">air</span><span class="p">[</span><span class="s1">'AQI'</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)</span>
@@ -9031,7 +8955,7 @@ Name: count, dtype: int64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -9098,14 +9022,14 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Task-5-%E2%80%94-Observations">Task 5 — Observations<a class="anchor-link" href="#Task-5-%E2%80%94-Observations">¶</a></h3><p><strong>Detection method — IQR:</strong><br/>
+<h3 id="Task-5:-Observations">Task 5: Observations<a class="anchor-link" href="#Task-5:-Observations">¶</a></h3><p><strong>Detection method: IQR:</strong><br/>
 The IQR fence (Q3 + 1.5 × IQR) is used because it makes no assumption about distributional form. Given the strong right skew of AQI, a z-score threshold would miss genuine upper outliers or flag too many borderline values depending on the chosen threshold.</p>
 <p><strong>Outliers found:</strong><br/>
-A non-trivial fraction of records exceed the IQR upper fence. The absolute maximum of ~2,049 AQI is almost certainly a sensor anomaly — it is roughly 4× the theoretical India AQI scale ceiling of 500.</p>
+A non-trivial fraction of records exceed the IQR upper fence. The absolute maximum of 2,049 AQI is almost certainly a sensor anomaly — it is roughly 4× the theoretical India AQI scale ceiling of 500.</p>
 <p><strong>Treatment — Winsorisation (not deletion):</strong></p>
 <ul>
 <li><strong>Why not delete?</strong> Pollution spikes (e.g. Diwali, stubble burning, summer dust storms) are real, recurring events. Deleting these rows would bias the distribution toward better-than-reality air quality and remove exactly the rows a pollution model most needs to learn from.</li>
-<li><strong>Why Winsorise at 99th percentile?</strong> The 99th percentile retains the extreme-but-plausible upper range while containing the single extreme anomaly (~2,049). Post-Winsorisation, the AQI standard deviation drops substantially, and the maximum is now within a physically plausible range.</li>
+<li><strong>Why Winsorise at 99th percentile?</strong> The 99th percentile retains the extreme-but-plausible upper range while containing the single extreme anomaly (2,049). Post-Winsorisation, the AQI standard deviation drops substantially, and the maximum is now within a physically plausible range.</li>
 <li><strong>AQI_Bucket re-derived</strong> after capping to keep the label column consistent with the updated numeric values — some previously 'Severe' rows are now reclassified as 'Very Poor' because their capped AQI falls back below 401.</li>
 </ul>
 </div>
@@ -9118,32 +9042,9 @@ A non-trivial fraction of records exceed the IQR upper fence. The absolute maxim
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="Summary-%E2%80%94-Final-Dataset-States">Summary — Final Dataset States<a class="anchor-link" href="#Summary-%E2%80%94-Final-Dataset-States">¶</a></h2><table>
-<thead>
-<tr>
-<th>Dataset</th>
-<th>Initial Shape</th>
-<th>Final Shape</th>
-<th>Key Changes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>city_day.csv</td>
-<td>29,531 × 16</td>
-<td>~29,531 × 13</td>
-<td>Dropped 4 high-missing cols; imputed remaining; added State; Winsorised AQI</td>
-</tr>
-<tr>
-<td>crop_production.csv</td>
-<td>246,091 × 7</td>
-<td>~242,361 × 7</td>
-<td>Dropped ~3,730 Production-null rows; standardised State_Name &amp; Season; renamed 3 states</td>
-</tr>
-</tbody>
-</table>
-<p>Both datasets are now clean, consistent, and ready for downstream modelling or further EDA tasks.</p>
+<h3 id="Summary:-Final-Dataset-States">Summary: Final Dataset States<a class="anchor-link" href="#Summary:-Final-Dataset-States">¶</a></h3><p>The city_day.csv dataset went from an initial shape of 29,531 × 16 to approximately 29,531 × 13. Four high-missing columns were dropped, the remaining missing values were imputed, a State column was added, and AQI was winsorised to handle extreme values.
+The crop_production.csv dataset went from an initial shape of 246,091 × 7 to approximately 242,361 × 7. Around 3,730 rows with null Production values were dropped, and State_Name and Season were standardised, including renaming of 3 states.
+Both datasets are now clean, consistent, and ready for downstream modelling or further EDA tasks.</p>
 </div>
 </div>
 </div>
@@ -9152,10 +9053,10 @@ A non-trivial fraction of records exceed the IQR upper fence. The absolute maxim
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'=== FINAL DATASET SUMMARY ==='</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'FINAL DATASET SUMMARY'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">city_day final shape : </span><span class="si">{</span><span class="n">air</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Columns              : </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Missing values       : </span><span class="si">{</span><span class="n">air</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
@@ -9177,7 +9078,7 @@ A non-trivial fraction of records exceed the IQR upper fence. The absolute maxim
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>=== FINAL DATASET SUMMARY ===
+<pre>FINAL DATASET SUMMARY
 
 city_day final shape : (29531, 13)
 Columns              : ['City', 'Date', 'PM2.5', 'NO', 'NO2', 'NOx', 'CO', 'SO2', 'O3', 'Benzene', 'AQI', 'AQI_Bucket', 'State']
