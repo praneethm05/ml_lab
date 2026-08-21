@@ -7820,6 +7820,7 @@ a.anchor-link {
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">CategoricalNB</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
 </pre></div>
 </div>
@@ -8480,7 +8481,7 @@ Probabilities: {'No': np.float64(0.9372988609654674), 'Yes': np.float64(0.062701
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Comparison-with-Decision-Tree-and-Logistic-Regression">Comparison with Decision Tree and Logistic Regression<a class="anchor-link" href="#Comparison-with-Decision-Tree-and-Logistic-Regression">¶</a></h2>
+<h2 id="Model-comparison:-Naive-Bayes,-Decision-Tree,-Logistic-Regression-and-SVM">Model comparison: Naive Bayes, Decision Tree, Logistic Regression and SVM<a class="anchor-link" href="#Model-comparison:-Naive-Bayes,-Decision-Tree,-Logistic-Regression-and-SVM">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8502,9 +8503,15 @@ Probabilities: {'No': np.float64(0.9372988609654674), 'Yes': np.float64(0.062701
 <span class="n">lr_pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">acc_lr</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lr_pred</span><span class="p">)</span>
 
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">svm_pred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">acc_svm</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">svm_pred</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Naive Bayes:"</span><span class="p">,</span> <span class="n">acc_nb</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Decision Tree:"</span><span class="p">,</span> <span class="n">acc_dt</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Logistic Regression:"</span><span class="p">,</span> <span class="n">acc_lr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"SVM:"</span><span class="p">,</span> <span class="n">acc_svm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8520,6 +8527,15 @@ Probabilities: {'No': np.float64(0.9372988609654674), 'Yes': np.float64(0.062701
 <pre>Naive Bayes: 0.8
 Decision Tree: 0.6
 Logistic Regression: 0.5333333333333333
+SVM: 0.6
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/opt/homebrew/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
 </pre>
 </div>
 </div>
@@ -8535,6 +8551,7 @@ Logistic Regression: 0.5333333333333333
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">dt_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lr_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">svm_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -8565,6 +8582,15 @@ weighted avg       0.79      0.60      0.66        15
    macro avg       0.40      0.31      0.35        15
 weighted avg       0.69      0.53      0.60        15
 
+              precision    recall  f1-score   support
+
+          No       0.00      0.00      0.00         2
+         Yes       0.82      0.69      0.75        13
+
+    accuracy                           0.60        15
+   macro avg       0.41      0.35      0.38        15
+weighted avg       0.71      0.60      0.65        15
+
 </pre>
 </div>
 </div>
@@ -8578,6 +8604,148 @@ weighted avg       0.69      0.53      0.60        15
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Naive Bayes gives 0.80, Decision Tree 0.60 and Logistic Regression 0.533. Naive Bayes works best here because all features are categorical and it handles them directly. Decision Tree overfits the small 35 row training set. Logistic Regression treats the encoded numbers as if they have an order, which is wrong for values like Outlook, and it never predicts No at all so its precision and recall for No are both 0.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3e6ea284">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Single-sample-query-across-all-four-models">Single sample query across all four models<a class="anchor-link" href="#Single-sample-query-across-all-four-models">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5a9a44e7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"Naive Bayes"</span><span class="p">,</span> <span class="n">nb</span><span class="p">),</span> <span class="p">(</span><span class="s2">"Decision Tree"</span><span class="p">,</span> <span class="n">dt</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">"Logistic Regression"</span><span class="p">,</span> <span class="n">lr</span><span class="p">),</span> <span class="p">(</span><span class="s2">"SVM"</span><span class="p">,</span> <span class="n">svm</span><span class="p">)]:</span>
+    <span class="n">pr</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_enc</span><span class="p">)</span>
+    <span class="n">pp</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">new_enc</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"model"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                 <span class="s2">"test_accuracy"</span><span class="p">:</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                 <span class="s2">"prediction"</span><span class="p">:</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">pr</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                 <span class="s2">"P(No)"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">pp</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"No"</span><span class="p">)],</span> <span class="mi">4</span><span class="p">),</span>
+                 <span class="s2">"P(Yes)"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">pp</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"Yes"</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)})</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>model</th>
+<th>test_accuracy</th>
+<th>prediction</th>
+<th>P(No)</th>
+<th>P(Yes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Naive Bayes</td>
+<td>0.800000</td>
+<td>No</td>
+<td>0.9373</td>
+<td>0.0627</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Decision Tree</td>
+<td>0.600000</td>
+<td>No</td>
+<td>1.0000</td>
+<td>0.0000</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Logistic Regression</td>
+<td>0.533333</td>
+<td>No</td>
+<td>0.9560</td>
+<td>0.0440</td>
+</tr>
+<tr>
+<th>3</th>
+<td>SVM</td>
+<td>0.600000</td>
+<td>No</td>
+<td>0.9620</td>
+<td>0.0380</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2b55ae8d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>All four models predict No for Sunny, Cool, High, Strong, but they are not equally sure. The Decision Tree gives P(No) = 1.0 because the query lands in a leaf that contains only No rows, so it has nothing left to be uncertain about. Naive Bayes gives 0.9373, SVM 0.9620 and Logistic Regression 0.9560.</p>
+<p>On test accuracy the order is Naive Bayes 0.80, then Decision Tree and SVM tied at 0.60, then Logistic Regression at 0.533.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e43e6b0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Analysis-report">Analysis report<a class="anchor-link" href="#Analysis-report">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a29e2f6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The models disagree on probability because each one builds its decision from a different assumption about the encoded features. Naive Bayes multiplies the per category conditional probabilities learned from the counts, so it gives a moderate 0.9373 that reflects how often sunny and high humidity days ended in No in the training rows. The Decision Tree splits until its leaves are pure and reports 1.0, which is overconfidence rather than certainty, since that leaf was built from only a handful of the 35 training rows. Logistic Regression and SVM both treat the ordinal codes as if they were numbers on a scale, so Overcast=0, Rain=1, Sunny=2 is read as a quantity instead of three unrelated categories, which is the wrong assumption for this data and is why they land at 0.533 and 0.60 accuracy despite producing confident looking probabilities.</p>
 </div>
 </div>
 </div>
